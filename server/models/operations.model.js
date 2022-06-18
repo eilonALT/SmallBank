@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const opertionsSchema = mongoose.Schema({
+const operationsSchema = mongoose.Schema({
     accountNumber: Number,
     type: String,
     amount: Number,
@@ -12,4 +12,4 @@ const opertionsSchema = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('opertions', opertionsSchema);
+module.exports = mongoose.model('operations', operationsSchema);

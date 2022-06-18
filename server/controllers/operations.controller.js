@@ -1,16 +1,16 @@
-const AccountOpertion = require('../models/operations.model');
+const AccountOperation = require('../models/operations.model');
 
-// Create and Save a new AccountOpertion
+// Create and Save a new AccountOperation
 exports.create = (req, res) => {
     // Validate request
     if (!req.body) {
         return res.status(400).send({
-            message: "AccountOpertion content can not be empty"
+            message: "AccountOperation content can not be empty"
         });
     }
 
-    // Create a AccountOpertion
-    const newAccountOpertion = new AccountOpertion({
+    // Create a AccountOperation
+    const newAccountOperation = new AccountOperation({
         accountNumber: +req.body.accountNumber || 0,
         type: req.body.type || {},
         amount: +req.body.amount || 0,
@@ -19,57 +19,57 @@ exports.create = (req, res) => {
         pays: +req.body.pays || 0,
     });
 
-    // Save AccountOpertion in the database
-    newAccountOpertion.save()
+    // Save AccountOperation in the database
+    newAccountOperation.save()
         .then(data => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while creating the AccountOpertion."
+                message: err.message || "Some error occurred while creating the AccountOperation."
             });
         });
 };
 
-// Retrieve and return all AccountOpertions from the database.
+// Retrieve and return all AccountOperations from the database.
 exports.findAll = (req, res) => {
-    AccountOpertion.find().then(AccountOpertions => {
-        res.send(AccountOpertions);
+    AccountOperation.find().then(AccountOperations => {
+        res.send(AccountOperations);
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while retrieving AccountOpertions."
+            message: err.message || "Some error occurred while retrieving AccountOperations."
         });
     });
 };
 
-// Find a single AccountOpertion with a AccountOpertionId
+// Find a single AccountOperation with a AccountOperationId
 exports.findOne = (req, res) => {
-    AccountOpertion.findById(req.params.id)
-        .then(AccountOpertion => {
-            if (!AccountOpertion) {
+    AccountOperation.findById(req.params.id)
+        .then(AccountOperation => {
+            if (!AccountOperation) {
                 return res.status(404).send({
-                    message: "AccountOpertion not found with id " + req.params.id
+                    message: "AccountOperation not found with id " + req.params.id
                 });
             }
-            res.send(AccountOpertion);
+            res.send(AccountOperation);
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "AccountOpertion not found with id " + req.params.id
+                    message: "AccountOperation not found with id " + req.params.id
                 });
             }
             return res.status(500).send({
-                message: "Error retrieving AccountOpertion with id " + req.params.id
+                message: "Error retrieving AccountOperation with id " + req.params.id
             });
         });
 }
-// find all accountOpertions by accountNumber
+// find all accountOperations by accountNumber
 exports.findAllByAccountNumber = (req, res) => {
-    AccountOpertion.find({ accountNumber: +req.query.accountNumber })
-        .then(AccountOpertions => {
-            res.send(AccountOpertions);
+    AccountOperation.find({ accountNumber: +req.query.accountNumber })
+        .then(AccountOperations => {
+            res.send(AccountOperations);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving AccountOpertions."
+                message: err.message || "Some error occurred while retrieving AccountOperations."
             });
         });
 }

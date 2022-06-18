@@ -1,20 +1,20 @@
 module.exports = (app) => {
-    const Opertion = require('../controllers/operations.controller');
+    const Operation = require('../controllers/operations.controller');
 
-    // Create a new Opertion
-    app.post('/opertions', Opertion.create);
+    // Create a new Operation
+    app.post('/operations', Operation.create);
 
-    // Retrieve all Opertion
-    app.get('/opertions', (req, res) => {
+    // Retrieve all Operation
+    app.get('/operations', (req, res) => {
         if (req?.query?.accountNumber) {
-            Opertion.findAllByAccountNumber(req, res);
+            Operation.findAllByAccountNumber(req, res);
         }
         else {
-            Opertion.findAll(req, res);
+            Operation.findAll(req, res);
         }
     });
 
-    // Retrieve a single Opertion with id
-    app.get('/opertions/:id', Opertion.findOne);
+    // Retrieve a single Operation with id
+    app.get('/operations/:id', Operation.findOne);
 
 }
