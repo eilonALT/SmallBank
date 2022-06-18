@@ -1,0 +1,42 @@
+<div class="w3-row-padding w3-center w3-margin-top">
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Withdraw</h3><br>
+      <i class="fa fa-dollar w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+      <p>please insert an amount:</p>
+      <form #withdrawForm="ngForm">
+        <p><input type="number" placeholder="amount" ngModel name="amount"></p>
+        <p><button class="w3-btn w3-btn-block w3-theme-l1"
+            (click)="createTransaction(withdrawForm,'withdraw')">Withdraw</button></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Deposit</h3><br>
+      <i class="fa fa-money w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+      <p>please insert an amount:</p>
+      <form #depositeForm="ngForm">
+        <p><input type="number" placeholder="amount" ngModel name="amount"></p>
+        <p><button class="w3-btn w3-btn-block w3-theme-l1"
+            (click)="createTransaction(depositeForm,'deposite')">Deposit</button></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Loan</h3><br>
+      <i class="fa fa-bank w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
+      <p>please insert an amount:</p>
+      <form #loanForm="ngForm">
+        <p><input type="number" placeholder="amount" ngModel name="amount"></p>
+        <p><input type="number" placeholder="insert" ngModel name="insert"></p>
+        <p><input type="number" placeholder="number of pays" ngModel name="pays"></p>
+        <p><button class="w3-btn w3-btn-block w3-theme-l1" (click)="createTransaction(loanForm,'loan')">Loan</button></p>
+      </form>
+    </div>
+  </div>
+</div>
+<br>

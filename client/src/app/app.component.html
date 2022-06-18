@@ -1,0 +1,8 @@
+<!-- Header -->
+<app-header [accounts]="accounts" (selectedAccount)="reciveAccount($event)"></app-header>
+
+<!-- transactions -->
+<app-transactions [currentAccount]="currentAccount"></app-transactions>
+
+<!-- opertions table -->
+<app-table></app-table>

@@ -1,0 +1,12 @@
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+    <div class="w3-center">
+      <h4>SMALL BANK WEBSITE</h4>
+      <h1 class="w3-xxxlarge w3-animate-bottom">WELCOME! PLEASE ENTER ACCOUNT NUMBER:</h1>
+      <div class="w3-padding-32">
+        <select name="" id="" (change)="setAccount($event)">
+          <option value="setAccount">Select Account</option>
+          <option value={{account.accountNumber}} *ngFor="let account of accounts">{{account.accountNumber}}</option>
+        </select>
+      </div>
+    </div>
+  </header>
