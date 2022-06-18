@@ -4,18 +4,18 @@ this is a small **responsive** bank aplication, that let the user preform one of
 __withdraw__, __deposite__, __loan__
 and see all the transactions of selected account.
 
-![grab-landing-page](https://github.com/)
+![grab-landing-page](https://github.com/eilonALT/SmallBank/blob/master/landpage.png)
 
 ### FRONT-END
--Angular
+- Angular
 
 ### BACK-END
--Node.js
--Express
+- Node.js
+- Express
 
 ### DATABASE
--MongoDB
--NoSQL
+- MongoDB
+- NoSQL
 
 ## installtion:
 You will need two terminals
