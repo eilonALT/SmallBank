@@ -1,22 +1,21 @@
 <div class="w3-responsive w3-card-4">
-    <table class="w3-table w3-striped w3-bordered">
-      <thead>
-        <tr class="w3-theme">
-          <th>Account</th>
-          <th>Amount</th>
-          <th>Operation</th>
-          <th>Date</th>
-          <th>Balance</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let transaction of transactions">
-          <td>{{transaction.accountNumber}}</td>
-          <td>{{transaction.amount}}</td>
-          <td>{{transaction.type}}</td>
-          <td>{{transaction.date.slice(0,10)+' '+transaction.date.slice(11,16)}}</td>
-          <td>{{currentAccount.overallBalance}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h4 style="background-color:'black';color:white; text-align: center;">{{'balance: '+currentAccount.overallBalance}}</h4>
+  <table class="w3-table w3-striped w3-bordered">
+    <thead>
+      <tr class="w3-theme">
+        <th>Account</th>
+        <th>Amount</th>
+        <th>Operation</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{transaction.accountNumber}}</td>
+        <td>{{transaction.amount}}</td>
+        <td>{{transaction.type}}</td>
+        <td>{{transaction.date.slice(0,10)+' '+transaction.date.slice(11,16)}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
