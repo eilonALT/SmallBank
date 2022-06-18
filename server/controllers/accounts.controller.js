@@ -1,7 +1,5 @@
 const Account = require('../models/accounts.model');
 
-let accountId = 1;
-
 // Create and Save a new Account
 exports.create = (req, res) => {
     // Validate request
@@ -65,7 +63,7 @@ exports.findOne = (req, res) => {
 // Update a Account identified by the id in the request
 exports.update = (req, res) => {
     // Validate Request
-    if (!req.body.content) {
+    if (!req.body) {
         return res.status(400).send({
             message: "Account content can not be empty"
         });
@@ -73,8 +71,8 @@ exports.update = (req, res) => {
 
     // Find Account and update it with the request body
     Account.findByIdAndUpdate(req.params.id, {
-        title: req.body.title || "Untitled Account",
-        content: req.body.content
+        accountNumber: +req.body.accountNumber,
+        overallBalance: +req.body.overallBalance,
     }, { new: true })
         .then(Account => {
             if (!Account) {

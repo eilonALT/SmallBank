@@ -27,7 +27,6 @@ export class TransactionService {
 
   /** create a  Transaction  */
   addTransaction(Transaction: Transaction): Observable<any> {
-    console.log('service add')
     return this.http.post<any>(`${this.URL}`, { 'accountNumber': Transaction.accountNumber, 'type': Transaction.type, 'amount': Transaction.amount, 'date': Transaction.date, 'insert': Transaction.insert, 'pays': Transaction.pays })
   }
 

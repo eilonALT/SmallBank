@@ -27,7 +27,12 @@ export class AccountService {
 
   /** create a  Account  */
   addAccount(Account: Account): Observable<any> {
-    console.log('service add')
     return this.http.post<any>(`${this.URL}`, { 'accountNumber': Account.accountNumber, 'overallBalance': Account.overallBalance })
+  }
+
+  /** update a  Account  */
+  updateAccount(Account: any): Observable<any> {
+    console.log('service update account')
+    return this.http.put<any>(`${this.URL}/${Account._id}`, {'accountNumber': Account.accountNumber, 'overallBalance': Account.overallBalance} )
   }
 }

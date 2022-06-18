@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   setAccount(e: any) {
     this.currentAccount = this.accounts.find(account => account.accountNumber == e.target.value) || [];
     this.selectedAccount.emit(this.currentAccount)
+    console.log(this.currentAccount)
   }
 
 }
