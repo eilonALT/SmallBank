@@ -1,12 +1,32 @@
 <header class="w3-container w3-theme w3-padding" id="myHeader">
-    <div class="w3-center">
-      <h4>SMALL BANK WEBSITE</h4>
-      <h1 class="w3-xxxlarge w3-animate-bottom">WELCOME! PLEASE CHOOSE ACCOUNT NUMBER:</h1>
-      <div class="w3-padding-32">
-        <select name="" id="" (change)="setAccount($event)">
-          <option value="setAccount">Select Account</option>
-          <option value={{account.accountNumber}} *ngFor="let account of accounts">{{account.accountNumber}}</option>
-        </select>
-      </div>
+  <div class="w3-center">
+    <h4>SMALL BANK WEBSITE</h4>
+    <h1 class="w3-xxxlarge w3-animate-bottom">WELCOME! PLEASE CHOOSE ACCOUNT NUMBER:</h1>
+    <div class="w3-padding-32">
+      <select name="" id="" (change)="setAccount($event)">
+        <option value="setAccount">Select Account</option>
+        <option value={{account.accountNumber}} *ngFor="let account of accounts">{{account.accountNumber}}</option>
+      </select>
+      <br><br>
+      <button class="w3-btn w3-dark-grey w3-hover-light-grey"
+        onclick="document.getElementById('id01').style.display='block'">Create New Account</button>
     </div>
-  </header>
+  </div>
+</header>
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-top">
+    <header class="w3-container w3-theme-l1">
+      <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-display-topright">×</span>
+      <h5>create new account : <i class="fa fa-smile-o"></i></h5>
+    </header>
+    <div class="w3-padding">
+      <form #createForm="ngForm">
+        <label>Account Number: </label>
+        <input type="number" ngModel name="accountNumber" style="width:50%;">
+        <button style="border-radius:5px;border-color:transparent;margin-left:5px;cursor: pointer;"
+          (click)="createAccount(createForm)">create</button>
+      </form>
+    </div>
+  </div>
+</div>

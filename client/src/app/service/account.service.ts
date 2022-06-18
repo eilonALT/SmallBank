@@ -7,6 +7,9 @@ import { Account } from '../models/account';
   providedIn: 'root'
 })
 export class AccountService {
+
+  DEAFULT_OVERALL_BALANCE = 0;
+
   URL = "http://127.0.0.1:5000/accounts"
   constructor(private http: HttpClient) { }
 
@@ -27,12 +30,12 @@ export class AccountService {
 
   /** create a  Account  */
   addAccount(Account: Account): Observable<any> {
-    return this.http.post<any>(`${this.URL}`, { 'accountNumber': Account.accountNumber, 'overallBalance': Account.overallBalance })
+    return this.http.post<any>(`${this.URL}`, { 'accountNumber': Account.accountNumber, 'overallBalance': this.DEAFULT_OVERALL_BALANCE })
   }
 
   /** update a  Account  */
   updateAccount(Account: any): Observable<any> {
     console.log('service update account')
-    return this.http.put<any>(`${this.URL}/${Account._id}`, {'accountNumber': Account.accountNumber, 'overallBalance': Account.overallBalance} )
+    return this.http.put<any>(`${this.URL}/${Account._id}`, { 'accountNumber': Account.accountNumber, 'overallBalance': Account.overallBalance })
   }
 }
