@@ -1,5 +1,6 @@
 import { Component, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Transaction } from './models/transaction';
 import { Account } from './models/account';
 import { AccountService } from './service/account.service';
 
@@ -9,8 +10,14 @@ import { AccountService } from './service/account.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   accounts: Account[] = [];
   currentAccount: Account = new Account();
+  transactions: Transaction[] = [];
+
+  ngOnChanges() {
+    console.log("ngOnChanges called in app component");
+  }
 
   constructor(private accountService: AccountService) {
     this.getAllAccounts();
@@ -26,17 +33,8 @@ export class AppComponent {
     this.currentAccount = $event;
   }
 
-  // addAccount(form: NgForm) {
-  //   let temp = new Account()
-  //   temp.accountNumber = form.value.accountNumber;
-  //   temp.overallBalance = form.value.overallBalance;
-  //   this.accountService.addAccount(temp).subscribe(msg => console.log(msg))
-  //   this.getAllAccounts()
-  // }
-
-  // delAccount(id: string) {
-  //   this.accountService.delAccount(id).subscribe(msg => console.log(msg))
-  //   this.getAllAccounts()
-  // }
+  reciveTransactions($event: Transaction[]) {
+    this.transactions = $event;
+  }
 
 }

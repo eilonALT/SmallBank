@@ -10,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   @Input() accounts: Account[] = [];
   currentAccount: any = new Account();
-  @Output() selectedAccount = new EventEmitter();
+  @Output() accountEmmiter = new EventEmitter();
 
   constructor() { }
 
@@ -19,8 +19,7 @@ export class HeaderComponent implements OnInit {
 
   setAccount(e: any) {
     this.currentAccount = this.accounts.find(account => account.accountNumber == e.target.value) || [];
-    this.selectedAccount.emit(this.currentAccount)
-    console.log(this.currentAccount)
+    this.accountEmmiter.emit(this.currentAccount)
   }
 
 }

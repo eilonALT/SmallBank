@@ -10,20 +10,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-        </tr>
-        <tr class="w3-white">
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-        </tr>
-        <tr>
-          <td>Adam</td>
-          <td>Johnson</td>
-          <td>67</td>
+        <tr *ngFor="let transaction of transactions">
+          <td>{{transaction.accountNumber}}</td>
+          <td>{{transaction.amount}}</td>
+          <td>{{transaction.type}}</td>
+          <td>{{transaction.date.slice(0,10)+' '+transaction.date.slice(11,16)}}</td>
+          <td>{{currentAccount.overallBalance}}</td>
         </tr>
       </tbody>
     </table>

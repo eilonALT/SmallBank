@@ -1,8 +1,8 @@
 <!-- Header -->
-<app-header [accounts]="accounts" (selectedAccount)="reciveAccount($event)"></app-header>
+<app-header [accounts]="accounts" (accountEmmiter)="reciveAccount($event)"></app-header>
 
 <!-- transactions -->
-<app-transactions [currentAccount]="currentAccount"></app-transactions>
+<app-transactions [currentAccount]="currentAccount" (transactionsEmitter)="reciveTransactions($event)"></app-transactions>
 
 <!-- operations table -->
-<app-table></app-table>
+<app-table [currentAccount]="currentAccount" [transactions]="transactions" ></app-table>
