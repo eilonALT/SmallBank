@@ -3,10 +3,9 @@
 this is a small **responsive** bank aplication, that let the user preform one of three transactions:
 __withdraw__, __deposite__, __loan__
 and see all the transactions of selected account.
----
+
 
 <img src="https://github.com/eilonALT/SmallBank/blob/master/landpage.png">
----
 
 ### FRONT-END
 - Angular
