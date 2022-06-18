@@ -7,15 +7,15 @@ and see all the transactions of selected account.
 ![grab-landing-page](https://github.com/)
 
 ### FRONT-END
-    -Angular
+-Angular
 
 ### BACK-END
-    -Node.js
-    -Express
+-Node.js
+-Express
 
 ### DATABASE
-    -MongoDB
-    -NoSQL
+-MongoDB
+-NoSQL
 
 ## installtion:
 You will need two terminals
